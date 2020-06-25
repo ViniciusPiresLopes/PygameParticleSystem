@@ -19,18 +19,12 @@ WHITE = 255, 255, 255,
 BLACK = 0, 0, 0,
 
 # Variables
-def change_color(self):
-    surface = pygame.Surface((10, 10))
-    surface.fill((255, 150, 0))
-
-    self.load_surface(surface)
-
+surface = pygame.Surface((10, 10))
+surface.fill((255, 150, 0))
 
 area = Area((WIDTH // 2, HEIGHT // 2), (25, 25))
 particle_system = ParticleSystem(area, FPS, 200, 1, [0, 0.5], [5, -12.5], 1)
-particle_system.start_particles(None)
-particle_system.on_start(change_color)
-    
+particle_system.start_particles_with_surface(surface)
 
 # Main loop
 run = True
@@ -45,12 +39,11 @@ while run:
             run = False
 
     mouse_pos = pygame.mouse.get_pos()
-
-    particle_system.set_pos([*mouse_pos])
-
-    particle_system.reverse_all()
+    particle_system.set_pos([*mouse_pos])  # Changes the position of the spawn of the particles (area)
     
-    particle_system.update()
+    particle_system.reverse_all()  # For spread particles in the original direction and the opposite of the original direction | seems like mirroring
+    
+    particle_system.update()  # Update all the physics
     particle_system.draw(win)
     
     pygame.display.flip()

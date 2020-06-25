@@ -81,8 +81,7 @@ class ParticleArray:
 
 
 class Area:
-    def __init__(self, pos, size, color=(0, 0, 150)):
-        self.color = color
+    def __init__(self, pos, size):
         self.pos = pos
         self.size = size
 
@@ -92,7 +91,6 @@ class ParticleSystem(ParticleArray):
         super().__init__()
 
         # Area
-        self.color = area.color
         self.pos = [*area.pos]
         self.size = [*area.size]
         

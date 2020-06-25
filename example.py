@@ -22,9 +22,9 @@ BLACK = 0, 0, 0,
 surface = pygame.Surface((10, 10))
 surface.fill((255, 150, 0))
 
-area = Area((WIDTH // 2, HEIGHT // 2), (25, 25))
+area = Area((WIDTH // 2, HEIGHT // 2), (25, 25))  # Spawn area of the particles
 particle_system = ParticleSystem(area, FPS, 200, 1, [0, 0.5], [5, -12.5], 1)
-particle_system.start_particles_with_surface(surface)
+particle_system.start_particles_with_surface(surface)  # Starting it with a surface | We can use "start_particles(img_path)" for loading images instead
 
 # Main loop
 run = True

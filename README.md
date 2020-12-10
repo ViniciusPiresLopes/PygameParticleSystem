@@ -1,2 +1,2 @@
 # PygameParticleSystem
-A simple pygame particle system.
+A particle system made with pygame.
